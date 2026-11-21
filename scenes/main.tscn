@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="Script" path="res://scripts/city_builder.gd" id="2_city"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="3_player"]
+[ext_resource type="Script" path="res://scripts/mission_manager.gd" id="4_missions"]
+[ext_resource type="Script" path="res://scripts/wanted_system.gd" id="5_wanted"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="6_hud"]
+[ext_resource type="Script" path="res://scripts/touch_controls.gd" id="7_touch"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_river"]
+sky_top_color = Color(0.26, 0.46, 0.64, 1)
+sky_horizon_color = Color(0.74, 0.79, 0.8, 1)
+sky_curve = 0.14
+sky_energy_multiplier = 1.0
+ground_bottom_color = Color(0.24, 0.28, 0.23, 1)
+ground_horizon_color = Color(0.63, 0.67, 0.58, 1)
+ground_curve = 0.04
+sun_angle_max = 24.0
+sun_curve = 0.09
+
+[sub_resource type="Sky" id="Sky_river"]
+sky_material = SubResource("ProceduralSkyMaterial_river")
+
+[sub_resource type="Environment" id="Environment_river"]
+background_mode = 2
+sky = SubResource("Sky_river")
+ambient_light_source = 3
+ambient_light_color = Color(0.66, 0.73, 0.78, 1)
+ambient_light_energy = 0.55
+reflected_light_source = 2
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.68, 0.75, 0.77, 1)
+fog_density = 0.0035
+fog_aerial_perspective = 0.35
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_main")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_river")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.95, -0.62, 0)
+light_color = Color(1, 0.94, 0.82, 1)
+light_energy = 1.25
+shadow_enabled = true
+directional_shadow_max_distance = 140.0
+
+[node name="FillLight" type="DirectionalLight3D" parent="."]
+rotation = Vector3(0.55, 2.5, 0)
+light_color = Color(0.58, 0.7, 0.88, 1)
+light_energy = 0.32
+shadow_enabled = false
+
+[node name="City" type="Node3D" parent="."]
+script = ExtResource("2_city")
+
+[node name="Vehicles" type="Node3D" parent="."]
+
+[node name="Pedestrians" type="Node3D" parent="."]
+
+[node name="Traffic" type="Node3D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 34)
+
+[node name="MissionManager" type="Node" parent="."]
+script = ExtResource("4_missions")
+
+[node name="WantedSystem" type="Node" parent="."]
+script = ExtResource("5_wanted")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("6_hud")
+
+[node name="TouchControls" type="CanvasLayer" parent="."]
+script = ExtResource("7_touch")

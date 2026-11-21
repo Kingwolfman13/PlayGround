@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/pedestrian.gd" id="1_ped"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ped"]
+radius = 0.3
+height = 1.7
+
+[node name="Pedestrian" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 1
+script = ExtResource("1_ped")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.85, 0)
+shape = SubResource("CapsuleShape3D_ped")
