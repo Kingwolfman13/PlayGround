@@ -1,26 +1,76 @@
-; Godot 4 project
+; Petersburg: River City — original offline open-world prototype
+; Godot 4.3+ / GDScript. No network services are used at runtime.
 config_version=5
 
 [application]
+
 config/name="Petersburg: River City"
+config/description="An original, offline open-world crime drama inspired by Petersburg, Virginia."
 run/main_scene="res://scenes/main.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.035, 0.043, 0.055, 1)
+boot_splash/show_image=false
 
 [display]
+
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+environment/defaults/default_clear_color=Color(0.035, 0.043, 0.055, 1)
+anti_aliasing/quality/msaa_3d=2
+anti_aliasing/quality/screen_space_aa=1
 
 [physics]
+
 common/physics_ticks_per_second=60
+3d/default_gravity=9.8
 
 [input]
-move_forward={"deadzone":0.5,"events":[{"physical_keycode":87,"type":"InputEventKey","keycode":87}]}
-move_back={"deadzone":0.5,"events":[{"physical_keycode":83,"type":"InputEventKey","keycode":83}]}
-move_left={"deadzone":0.5,"events":[{"physical_keycode":65,"type":"InputEventKey","keycode":65}]}
-move_right={"deadzone":0.5,"events":[{"physical_keycode":68,"type":"InputEventKey","keycode":68}]}
-sprint={"deadzone":0.5,"events":[{"physical_keycode":4194325,"type":"InputEventKey","keycode":4194325}]}
-jump={"deadzone":0.5,"events":[{"physical_keycode":32,"type":"InputEventKey","keycode":32}]}
-interact={"deadzone":0.5,"events":[{"physical_keycode":69,"type":"InputEventKey","keycode":69}]}
-exit_vehicle={"deadzone":0.5,"events":[{"physical_keycode":70,"type":"InputEventKey","keycode":70}]}
-honk={"deadzone":0.5,"events":[{"physical_keycode":72,"type":"InputEventKey","keycode":72}]}
+
+move_forward={
+"deadzone": 0.2,
+"events": [{"physical_keycode": 87, "type": "InputEventKey", "keycode": 87}]
+}
+move_back={
+"deadzone": 0.2,
+"events": [{"physical_keycode": 83, "type": "InputEventKey", "keycode": 83}]
+}
+move_left={
+"deadzone": 0.2,
+"events": [{"physical_keycode": 65, "type": "InputEventKey", "keycode": 65}]
+}
+move_right={
+"deadzone": 0.2,
+"events": [{"physical_keycode": 68, "type": "InputEventKey", "keycode": 68}]
+}
+sprint={
+"deadzone": 0.2,
+"events": [{"physical_keycode": 4194325, "type": "InputEventKey", "keycode": 4194325}]
+}
+jump={
+"deadzone": 0.2,
+"events": [{"physical_keycode": 32, "type": "InputEventKey", "keycode": 32}]
+}
+interact={
+"deadzone": 0.2,
+"events": [{"physical_keycode": 69, "type": "InputEventKey", "keycode": 69}]
+}
+exit_vehicle={
+"deadzone": 0.2,
+"events": [{"physical_keycode": 70, "type": "InputEventKey", "keycode": 70}]
+}
+honk={
+"deadzone": 0.2,
+"events": [{"physical_keycode": 72, "type": "InputEventKey", "keycode": 72}]
+}
+
