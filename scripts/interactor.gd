@@ -38,6 +38,8 @@ func get_prompt() -> String:
 		return ""
 	if target.has_method("get_drive_prompt"):
 		return str(target.get_drive_prompt())
+	if target.has_method("get_prompt") and target.is_in_group("talking_dog"):
+		return str(target.get_prompt())
 	var id := str(target.get_meta("interact_id", ""))
 	match id:
 		"pickup":

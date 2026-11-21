@@ -18,6 +18,7 @@ var current_vehicle: RiverCar
 var vehicles: Array = []
 var pedestrians: Array = []
 var traffic: Array = []
+var talking_dog: TalkingDog
 var paused := false
 var touch_enabled := false
 var ambient: AudioStreamPlayer
@@ -35,6 +36,7 @@ func _ready() -> void:
 	_spawn_vehicles()
 	_spawn_pedestrians()
 	_spawn_traffic()
+	_spawn_talking_dog()
 	_setup_audio()
 	mission_manager.setup(self, player, hud)
 	wanted_system.setup(self, player, hud)
@@ -88,6 +90,13 @@ func _spawn_pedestrians() -> void:
 		ped.set_world(self, player)
 		ped.hit_by_car.connect(_on_pedestrian_hit)
 		pedestrians.append(ped)
+
+func _spawn_talking_dog() -> void:
+	var dog := TalkingDog.new()
+	dog.name = "Pip"
+	$TalkingDogs.add_child(dog)
+	dog.setup(self, player)
+	talking_dog = dog
 
 func _spawn_traffic() -> void:
 	for data in WorldData.TRAFFIC:
@@ -148,6 +157,10 @@ func _on_interact(target: Node3D) -> void:
 		return
 	if target is RiverCar:
 		_try_enter_vehicle(target as RiverCar)
+		return
+	if target is TalkingDog:
+		target.interact()
+		hud.show_toast("Pip has something to say.", 2.5, Color("#e7b45b"))
 		return
 	var id := str(target.get_meta("interact_id", ""))
 	match id:

@@ -63,6 +63,8 @@ script = ExtResource("2_city")
 
 [node name="Traffic" type="Node3D" parent="."]
 
+[node name="TalkingDogs" type="Node3D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("3_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 34)
 
