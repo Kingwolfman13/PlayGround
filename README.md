@@ -1,19 +1,32 @@
-# PlayGround
+# Petersburg: River City
 
-<!-- omgithub:readme:start -->
-## 🚀 Build, play, and remix with OMGithub
+A fictional, offline Godot 4.2+ first-person neighborhood inspired by Petersburg, Virginia. It is not an exact map or representation of real addresses.
 
-**Remixed using [OMGithub.com](https://go.ondev.store/).**
+## Open and play
 
-[![OMGithub](https://img.shields.io/badge/OMGithub-Open%20project-orange?style=for-the-badge)](https://go.ondev.store/Kingwolfman13/PlayGround)
-[![GitHub](https://img.shields.io/badge/GitHub-Source-181717?logo=github&style=for-the-badge)](https://github.com/Kingwolfman13/PlayGround)
+1. Install Godot 4.2 or newer.
+2. Open this folder using **Import** and select `project.godot`.
+3. Open `scenes/main.tscn` and press F6 or F5.
 
-- 🎮 [Open the project](https://go.ondev.store/Kingwolfman13/PlayGround).
-- ✨ [Remix this project](https://go.ondev.store/Kingwolfman13/PlayGround?remix=1).
-- 💻 [Explore the source](https://github.com/Kingwolfman13/PlayGround).
-- 🛠️ [Check build runs](https://github.com/Kingwolfman13/PlayGround/actions).
-- 🐛 [Report an issue](https://github.com/Kingwolfman13/PlayGround/issues).
-- 👤 [Explore the creator's projects](https://go.ondev.store/Kingwolfman13).
-- 🌍 [Create with OMGithub](https://go.ondev.store/).
-- 🧬 [Explore the remix source](https://github.com/Kingwolfman13/PlayGround).
-<!-- omgithub:readme:end -->
+## Controls
+
+- WASD: move
+- Shift: sprint
+- Space: jump
+- Mouse: look
+- E: interact / enter the nearby car
+- F: exit the car
+- R: restart / advance
+- Escape: release mouse
+
+Touch devices receive a joystick and on-screen action buttons when a touchscreen is detected.
+
+## Included
+
+- Procedural Old Towne-inspired blockout and waterfront
+- First-person player and deliverable crate mission
+- Enterable VehicleBody3D with chase camera
+- Four mission locations, timer, rewards, and local save
+- Touch controls
+
+This first milestone intentionally leaves out combat, exact Petersburg mapping, and live data. No API key or network connection is used.

@@ -1,0 +1,39 @@
+; Engine configuration file.
+; It's best edited using the editor and not directly,
+; since the parameters that go here are not all obvious.
+
+config_version=5
+
+[application]
+
+config/name="Petersburg: River City"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[input]
+
+move_forward={"deadzone":0.5,"events":[{"physical_keycode":87,"keycode":87,"type":"InputEventKey"}]}
+move_back={"deadzone":0.5,"events":[{"physical_keycode":83,"keycode":83,"type":"InputEventKey"}]}
+move_left={"deadzone":0.5,"events":[{"physical_keycode":65,"keycode":65,"type":"InputEventKey"}]}
+move_right={"deadzone":0.5,"events":[{"physical_keycode":68,"keycode":68,"type":"InputEventKey"}]}
+sprint={"deadzone":0.5,"events":[{"physical_keycode":4194325,"keycode":4194325,"type":"InputEventKey"}]}
+jump={"deadzone":0.5,"events":[{"physical_keycode":32,"keycode":32,"type":"InputEventKey"}]}
+interact={"deadzone":0.5,"events":[{"physical_keycode":69,"keycode":69,"type":"InputEventKey"}]}
+exit_vehicle={"deadzone":0.5,"events":[{"physical_keycode":70,"keycode":70,"type":"InputEventKey"}]}
+honk={"deadzone":0.5,"events":[{"physical_keycode":72,"keycode":72,"type":"InputEventKey"}]}
+
+[physics]
+
+common/physics_ticks_per_second=60
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
